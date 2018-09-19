@@ -1,0 +1,36 @@
+syntax = "proto3";
+
+package protoc;
+
+service Bank {
+  rpc GetBalance (CheckBalanceRequest) returns (CheckBalanceResponse) {}
+  rpc Deposite (DepositeRequest) returns (DipositeResponse) {}
+  rpc Withdraw (WithdrawRequest) returns (WithdrawResponse) {}
+}
+
+message CheckBalanceRequest {
+  string account = 1;
+}
+
+message CheckBalanceResponse {
+  float balance = 1;
+}
+
+message DepositeRequest{
+  string account = 1;
+  float amount = 2;
+}
+
+message DipositeResponse{
+  bool status = 1;
+}
+
+message WithdrawRequest{
+  string account = 1;
+  float amount = 2;
+}
+
+message WithdrawResponse{
+  bool status = 1;
+  float balance = 2;
+}
